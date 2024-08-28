@@ -1,0 +1,16 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block title%}{{product.title}}{%endblock%}
+{%block content%}
+    <div class="d-flex container my-5 " style="margin-left: 50px;">
+        
+        <img src="{{product.picture.url}}" alt="">
+        <div class="d-flex flex-column  border border-3 ms-5 p-3 border-black" style="width: 250px;">
+
+            <h1>{{product.title}}</h1>
+            <p>in stock: {{product.stock}}</p>
+            <span>{{product.description}}</span>
+            <a href='{%url "make_orders" product_id=product.id%}' class="" style="width: 100px;">order</a>
+        </div>
+    </div>
+{%endblock%}

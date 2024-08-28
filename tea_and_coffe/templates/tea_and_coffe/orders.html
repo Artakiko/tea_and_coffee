@@ -1,0 +1,23 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block title%}orders{%endblock%}
+{%block content%}
+    {%for order in orders%}
+    <div class="card " style="width: 18rem;">
+        <div class ='idk d-flex'>
+        <img src="{{order.product.picture.url}}" class="card-img-top w-50" alt="...">
+        <div class="card-body ">
+          <h5 class="card-title">{{order.product.title}}</h5>
+          <p class="card-text">{{order.address}}.</p>
+          <p>{{order.created_at}}</p>
+          
+        </div>
+    </div>
+      </div>
+    <h1>order</h1>
+    
+    <h1>{{order.product.title}}</h1>
+    {%endfor%}
+    
+
+{%endblock%}

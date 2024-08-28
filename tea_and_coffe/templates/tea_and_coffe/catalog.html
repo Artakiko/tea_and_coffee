@@ -1,0 +1,32 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block title%}catalog{%endblock%}
+{%block content%}
+    <h1>catalog</h1>
+    {%for product in products%}
+    <div class="card" style="width: 18rem;">
+        <img src="{{product.picture.url}}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h3 class="card-title mt-2 p-0" >{{product.title}}</h3>
+          <div class="d-flex gap-1">
+            
+            <p class="card-text fs-3 fw-bold m-0 p-1">{{product.price}}$</p>
+            <p class="card-text fs-6 text-danger">-{{product.discounts}}%</p>
+          </div>
+          
+         
+          {%for star in '*****'%}
+          {%if forloop.counter <= product.rating%}
+          <img src="{%static 'tea_and_coffe/img/star.png'%}" alt="">
+          {%else%}
+          <img src="{%static 'tea_and_coffe/img/star.png'%}" alt="" style="filter: grayscale(1);">
+          {%endif%}
+          {%endfor%}
+          
+          
+          <a href="{%url 'product_detail' product_id=product.id%}" class="btn btn-outline-dark w-100" >buy the product</a>
+          <p class="card-text text-secondary">product left: {{product.stock}}</p>
+        </div>
+      </div>
+      {%endfor%}
+      {%endblock%}

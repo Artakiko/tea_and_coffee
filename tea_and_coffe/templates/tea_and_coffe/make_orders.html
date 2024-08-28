@@ -1,0 +1,10 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block title%}make orders{%endblock%}
+{%block content%}
+    <form action="" method='post'> 
+        {% csrf_token %}
+        <input type="text" placeholder="address" name="address">
+        <button type="submit">confirm</button>
+    </form>
+{%endblock%}
